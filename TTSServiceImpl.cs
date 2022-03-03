@@ -69,6 +69,9 @@ namespace SpeechGrpcServer
                 tcs.TrySetResult(new ttsResult
                 {
                     IsSuccess = true,
+                    LibraryName = libraryName,
+                    EngineName = engineName,
+                    Body = body,
                     OutputPath = outputPath
                 });
             };
