@@ -1,6 +1,5 @@
 ﻿using System;
 using CommandLine;
-using Speech;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Ttscontroller;
@@ -41,28 +40,6 @@ namespace SpeechGrpcServer
                     Thread.Sleep(500);
                 }
             });
-        }
-
-
-
-        public static Boolean OneShotPlayMode(string libraryName, string text)
-        {
-
-            var engine = SpeechController.GetInstance(libraryName);
-            if (engine == null)
-            {
-                Console.WriteLine($"{libraryName} を起動できませんでした。");
-                return false;
-            }
-            engine.Activate();
-            engine.Finished += (s, a) =>
-            {
-                engine.Dispose();
-
-            };
-            engine.Play(text);
-            return true;
-
         }
     }
 }
