@@ -34,12 +34,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Protobuf Include="Protos\TTSController.proto" GrpcServices="Server" />
-  </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Speech\Speech.csproj" />
+    <ProjectReference Include="..\descript-to-video-dev\TTSController\src\Speech\Speech.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="Protos\TTSController.proto" GrpcServices="Server" />
   </ItemGroup>
 
 </Project>
