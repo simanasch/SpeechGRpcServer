@@ -104,6 +104,7 @@ namespace SpeechGrpcServer
                 t.Wait();
                 engine.Dispose();
                 Console.WriteLine("record completed");
+                WavResampler.resampleTo16bit(outputPath);
                 tcs.TrySetResult(new ttsResult
                 {
                     IsSuccess = true,
