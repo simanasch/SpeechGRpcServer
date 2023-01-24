@@ -120,6 +120,32 @@ namespace SpeechGrpcServer
             return tcs.Task;
         }
 
+        private static Task<ttsResult> RecordViaTtsController(ISpeechController engine, SoundRecorder recorder, String libraryName, String engineName, String body, String outputPath)
+        {
+            var tcs = new TaskCompletionSource<ttsResult>();
+            engine.Activate();
+            engine.Finished += (s, a) =>
+            {
+                Task t = recorder.Stop();
+                t.Wait();
+                engine.Dispose();
+                Console.WriteLine("record completed");
+                WavResampler.resampleTo16bit(outputPath);
+                tcs.TrySetResult(new ttsResult
+                {
+                    IsSuccess = true,
+                    LibraryName = libraryName,
+                    EngineName = engineName,
+                    Body = body,
+                    OutputPath = outputPath
+                });
+            };
+            // recorderの起動後に音声を再生する
+            recorder.Start();
+            engine.Play(body);
+            return tcs.Task;
+        }
+
         private static ISpeechController getInstance(String libraryName, String engineName)
         {
             if (String.IsNullOrWhiteSpace(engineName))

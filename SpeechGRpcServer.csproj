@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\descript-to-video-dev\TTSController\src\Speech\Speech.csproj" />
+    <ProjectReference Include="..\TTSController\src\Speech\Speech.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="Protos\TTSController.proto" GrpcServices="Server" />

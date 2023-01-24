@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeechGRpcServer", "SpeechGRpcServer.csproj", "{88E9CB27-36BF-44D3-B30F-BF50760DE541}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speech", "..\descript-to-video-dev\TTSController\src\Speech\Speech.csproj", "{7787A468-A1BB-4077-85BC-543258610060}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speech", "..\TTSController\src\Speech\Speech.csproj", "{7787A468-A1BB-4077-85BC-543258610060}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
