@@ -7,9 +7,9 @@ using System.Threading;
 
 namespace SpeechGrpcServer
 {
-    class Program
+    class Server
     {
-        static Server server = null;
+        static Grpc.Core.Server server = null;
 
         public class Options
         {
@@ -23,9 +23,9 @@ namespace SpeechGrpcServer
         static void Main(string[] args)
         {
             Parser.Default.ParseArguments<Options>(args)
-            .WithParsed<Options>(o =>
+            .WithParsed(o =>
             {
-                server = new Server
+                server = new Grpc.Core.Server
                 {
                     Services = {
                         TTSService.BindService(new TTSControllerImpl())
